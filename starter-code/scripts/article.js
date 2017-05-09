@@ -4,7 +4,12 @@ var articles = [];
 
 function Article (rawDataObj) {
   // TODO: Use the JS object passed in to complete this constructor function:
-  // Save ALL the properties of `rawDataObj` into `this`
+  this.title = title;
+  this.category = category;
+  this.author = author;
+  this.authorUrl = authorUrl;
+  this.publishedOn = publishedOn;
+  this.body = body;
 }
 
 Article.prototype.toHtml = function() {
@@ -13,7 +18,7 @@ Article.prototype.toHtml = function() {
   However, in our modules.css stylesheet, we gave all elements
   with a class of template a display of none. Let's make
   sure we're not accidentally hiding our cloned article! */
-
+  $('article').removeClass('template');
   if (!this.publishedOn) $newArticle.addClass('draft');
   $newArticle.data('category', this.category);
 
@@ -25,7 +30,7 @@ Article.prototype.toHtml = function() {
     3. article title,
     4. article body, and
     5. publication date. */
-
+  $newArticle.html(new Article('Kevin Bacon'));
   // Display the date as a relative number of 'days ago'
   $newArticle.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
   $newArticle.append('<hr>');
