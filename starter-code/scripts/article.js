@@ -36,8 +36,9 @@ Article.prototype.toHtml = function() {
   $newArticle.find('h1').html(this.title);
   $newArticle.find('section').html(this.body);
 
+
   // Display the date as a relative number of 'days ago'
-  $newArticle.find('time').html('about ' + parseInt((new Date() - new Date())) + ' days ago');
+  $newArticle.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
   $newArticle.append('<hr>');
   return $newArticle;
 };
