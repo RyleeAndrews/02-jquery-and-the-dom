@@ -35,6 +35,7 @@ Article.prototype.toHtml = function() {
   $newArticle.find('a').attr('href',this.authorUrl);
   $newArticle.find('h1').html(this.title);
   $newArticle.find('section').html(this.body);
+  $newArticle.find('time').html(this.publishedOn);
 
 
   // Display the date as a relative number of 'days ago'
